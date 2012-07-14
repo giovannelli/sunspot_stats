@@ -13,7 +13,7 @@ module Sunspot
 
       def stat(field_name, options = {})
         field = @setup.field(field_name)
-        options[:facet] = @setup.field(options[:facet]) if options[:facet].present?
+        options[:facet] = @setup.field(options[:facet]) if !options[:facet].nil?
         stat = @query.add_stat(Sunspot::Query::FieldStat.new(field, options))
         @search.add_field_stat(field, options)
       end
