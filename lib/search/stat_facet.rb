@@ -32,7 +32,7 @@ module Sunspot
           if @options[:sort] == :type
             rows.sort! { |lrow, rrow| rrow.count <=> lrow.count }
           else
-            rows.sort! { |lrow, rrow| lrow.field <=> rrow.field }
+            rows.sort! { |lrow, rrow| lrow.stat_field <=> rrow.stat_field }
           end if @sort
           rows
         end
