@@ -9,9 +9,10 @@ module Sunspot
       end
 
       # 
-      # Return the instance referenced by this facet row. Only valid for field
-      # facets whose fields are defined with the :references key.
+      # Return the instance referenced by this stat row. Only valid for field
+      # stats whose fields are defined with the :references key.
       #
+      
       def instance
         if !defined?(@instance)
           @stat.populate_instances
