@@ -17,6 +17,6 @@ module Sunspot
         stat = @query.add_stat(Sunspot::Query::FieldStat.new(field, options))
         @search.add_field_stat(field, options)
       end
-          
+    end    
   end
 end
