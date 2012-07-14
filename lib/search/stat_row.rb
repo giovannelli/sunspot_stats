@@ -1,11 +1,11 @@
 module Sunspot
   module Search
     class StatRow
-      attr_reader :field, :value
+      attr_reader :stat_field, :value
       attr_writer :instance #:nodoc:
 
-      def initialize(field, value, stat) #:nodoc:
-        @field, @value, @stat = field, value, stat
+      def initialize(stat_field, value, stat) #:nodoc:
+        @stat_field, @value, @stat = stat_field, value, stat
       end
 
       # 
@@ -20,7 +20,7 @@ module Sunspot
       end
 
       def inspect
-        "<Sunspot::Search::StatRow:#{field.inspect} (#{value})>"
+        "<Sunspot::Search::StatRow:#{stat_field.inspect} (#{value})>"
       end
     end
   end

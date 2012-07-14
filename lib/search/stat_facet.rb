@@ -10,28 +10,31 @@ module Sunspot
       end
 
       def rows
-        @options[:stat_type] ||= "sum"
+        @options[:type] ||= "sum"
+        @sort = fasle
         @rows ||=
-          begin
+        begin
+          if !@search.stat_response['stats_fields'].nil?
             if @options[:facet].present?
               data = @search.stat_response['stats_fields'][@field.indexed_name]['facets'][@options[:facet].indexed_name]
+              @sort = true
             else
               data = @search.stat_response['stats_fields'].to_a
             end
-            
-            rows = []
-            
-            data.collect do |stat, value|
-              rows << StatRow.new(stat, value[@options[:stat_type]], self)
-            end
-
-            if @options[:sort] == :count
-              rows.sort! { |lrow, rrow| rrow.count <=> lrow.count }
-            else
-              rows.sort! { |lrow, rrow| lrow.value <=> rrow.value }
-            end
-            rows
           end
+          rows = []
+
+          data.collect do |stat, value|
+            rows << StatRow.new(stat, value[@options[:type]], self)
+          end
+
+          if @options[:sort] == :type
+            rows.sort! { |lrow, rrow| rrow.count <=> lrow.count }
+          else
+            rows.sort! { |lrow, rrow| lrow.field <=> rrow.field }
+          end if @sort
+          rows
+        end
       end
     end
   end
