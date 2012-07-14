@@ -1,7 +1,7 @@
 module Sunspot
   module Search
     class StatFacet
-      
+
       def initialize(field, search, options)
         @field, @search, @options = field, search, options
       end
@@ -43,5 +43,4 @@ module Sunspot
       end
     end
   end
-end
 end
