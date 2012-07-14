@@ -28,9 +28,9 @@ The statComponent let you to have *min*, *max*, *count*, *missing*, *sum*, *sumO
 Model.search do
   #Filters
 	...
-  #facets
+  #Facets
   ...
-	#stats
+	#Stats
   stat(:your_field, :facet => :your_facet_filed, :type => "min")  
   ...
 end

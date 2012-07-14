@@ -11,7 +11,7 @@ module Sunspot
 
       def rows
         @options[:type] ||= "sum"
-        @sort = fasle
+        @sort = false
         @rows ||=
         begin
           if !@search.stat_response['stats_fields'].nil?
