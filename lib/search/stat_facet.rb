@@ -16,7 +16,8 @@ module Sunspot
         begin
           if !@search.stat_response['stats_fields'].nil?
             if @options[:facet].present?
-              data = @search.stat_response['stats_fields'][@field.indexed_name]['facets'][@options[:facet].indexed_name]
+              stat = @search.stat_response['stats_fields'][@field.indexed_name]
+              data = stat.nil? ? [] : stat['facets'][@options[:facet].indexed_name]
               @sort = true
             else
               data = @search.stat_response['stats_fields'].to_a
@@ -27,7 +28,7 @@ module Sunspot
           data.collect do |stat, value|
             rows << StatRow.new(stat, value[@options[:type]], self)
           end
-
+ 
           if @options[:sort] == :type
             rows.sort! { |lrow, rrow| rrow.count <=> lrow.count }
           else
