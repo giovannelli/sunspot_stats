@@ -1,6 +1,6 @@
-# SunspotStats
+# Sunspot Stats
 
-TODO: Write a gem description
+Sunspot is a Ruby library for expressive, powerful interaction with the Solr search engine. I use the latest version [2.0.0.pre.120417](https://rubygems.org/gems/sunspot/versions/2.0.0.pre.120417) but i need the statsComponent in order to get the sum on a given indexed field. 
 
 ## Installation
 
@@ -17,8 +17,6 @@ Or install it yourself as:
     $ gem install sunspot_stats
 
 ## Usage
-
-Sunspot is a Ruby library for expressive, powerful interaction with the Solr search engine. I use the latest version [2.0.0.pre.120417](https://rubygems.org/gems/sunspot/versions/2.0.0.pre.120417) but i need the statsComponent in order to get the sum on a given indexed field. 
 
 The statComponent let you to have *min*, *max*, *count*, *missing*, *sum*, *sumOfsquare*, *mean* and *stdev*.
 

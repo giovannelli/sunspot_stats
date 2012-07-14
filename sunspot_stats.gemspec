@@ -19,5 +19,9 @@ Gem::Specification.new do |gem|
   gem.version       = SunspotStats::VERSION
   
   gem.add_dependency "sunspot", "~> 2.0.0.pre.120417"
-  gem.add_development_dependency "rspec" 
+  gem.add_development_dependency "rspec"
+  
+  gem.rdoc_options << '--webcvs=http://github.com/giovannelli/sunspot_stats/tree/master/%s' <<
+                   '--title' << 'Sunspot Stat - StatsComponent for sunspot - API Documentation' <<
+                   '--main' << 'README.rdoc'
 end
