@@ -50,6 +50,11 @@ Usually Suspot use the dismax for searches, here we extend to edismax to manage 
 
 a OR (b AND c) works.
 
+## TODO
+
+Some more test!
+
+
 ## Contributing
 
 1. Fork it
