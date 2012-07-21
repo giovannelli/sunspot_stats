@@ -9,7 +9,7 @@ end
   require File.join(File.dirname(__FILE__), "search", file)
 end
 
-%w(stat_query field_stat).each do |file|
+%w(stat_query field_stat edismax).each do |file|
   require(File.join(File.dirname(__FILE__), 'query', file))
 end
 
