@@ -12,6 +12,7 @@ module Sunspot
 
       def rows
         @options[:type] ||= "sum"
+        @options[:limit] ||= -1
         @sort = false
         @rows ||=
         begin
@@ -36,7 +37,7 @@ module Sunspot
           else
             rows.sort! { |lrow, rrow| lrow.stat_field <=> rrow.stat_field }
           end if @sort
-          rows
+          rows[0..@options[:limit]]
         rescue Exception => e
           puts "Error: #{e}"
         end
