@@ -11,6 +11,8 @@ module Sunspot
       end
 
       def rows
+        #sort options :count or :stat_field 
+        @options[:sort] ||= :count
         @options[:type] ||= "sum"
         @options[:limit] ||= -1
         @sort = false
@@ -32,7 +34,7 @@ module Sunspot
             rows << StatRow.new(stat, value[@options[:type]], self)
           end
 
-          if @options[:sort] == :type
+          if @options[:sort] == :count
             rows.sort! { |lrow, rrow| rrow.count <=> lrow.count }
           else
             rows.sort! { |lrow, rrow| lrow.stat_field <=> rrow.stat_field }
