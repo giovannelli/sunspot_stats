@@ -39,6 +39,15 @@ module Sunspot
       end
 
       def stat_response #:nodoc:
+        @solr_result['stats']["stats_fields"].each_pair do |k, value|
+          value["facets"].each_pair do |k1, value1|
+            value1.each_pair do |k2, value2|
+              if @solr_result['stats']['stats_fields'][k]['facets'][k1][k2]['mean'].to_s == 'NaN'
+                @solr_result['stats']['stats_fields'][k]['facets'][k1][k2]['mean'] = 0.0
+              end
+            end
+          end
+        end
         @solr_result['stats']
       end
 
