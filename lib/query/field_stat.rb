@@ -24,7 +24,6 @@ module Sunspot
           :"stats.field" => @field.indexed_name
         }
         params.merge!({:"stats.facet" => @options[:facet].indexed_name}) if !@options[:facet].nil?
-        params.merge!({:"facet.limit" => @options[:limit]}) if !@options[:limit].nil?
         params
       end
     end
