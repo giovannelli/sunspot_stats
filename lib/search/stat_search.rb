@@ -48,7 +48,7 @@ module Sunspot
             end
           end
         end
-        @solr_result['stats']
+        @solr_result['stats']||[]
       end
 
       def add_field_stat(field, options = {}) #:nodoc:
