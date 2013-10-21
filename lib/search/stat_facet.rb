@@ -41,8 +41,8 @@ module Sunspot
           end if @sort
           return rows.empty? ? [] : rows[0..@options[:limit]]
         rescue Exception => e
-          return []
           puts "Error: #{e}"
+          return []
         end
       end
     end
