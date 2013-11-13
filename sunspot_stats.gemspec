@@ -18,7 +18,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = SunspotStats::VERSION
   
-  gem.add_dependency "sunspot", "~> 2.0.0"
   gem.add_development_dependency "rspec"
   
   gem.rdoc_options << '--webcvs=http://github.com/giovannelli/sunspot_stats/tree/master/%s' <<
