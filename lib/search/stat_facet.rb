@@ -31,8 +31,7 @@ module Sunspot
           rows = []
 
           data.collect do |stat, value|
-            puts "Value: #{value}"
-            rows << StatRow.new(stat, value[@options[:type]], value, self)
+            rows << StatRow.new(stat, value[@options[:type]], value, self) if value.present?
           end
 
           if @options[:sort] == :count
