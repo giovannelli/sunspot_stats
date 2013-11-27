@@ -18,7 +18,7 @@ module Sunspot
         @sort = false
         @rows ||=
         begin
-          if !@search.stat_response['stats_fields'].nil?
+          if @search.stat_response.present? && @search.stat_response['stats_fields'].present?
             if @options[:facet].present?
               stat = @search.stat_response['stats_fields'][@field.indexed_name]
               data = stat.nil? ? [] : stat['facets'][@options[:facet].indexed_name]
@@ -41,7 +41,7 @@ module Sunspot
           end if @sort
           return rows.empty? ? [] : rows[0..@options[:limit]]
         rescue Exception => e
-          puts "Error: #{e}"
+          puts "Sunspot Stats error: #{e}"
           return []
         end
       end
