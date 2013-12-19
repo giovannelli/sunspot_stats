@@ -41,7 +41,7 @@ module Sunspot
           end if @sort
           return rows.empty? ? [] : rows[0..@options[:limit]]
         rescue Exception => e
-          logger.info "Sunspot Stats error: #{e.message} \n\n #{e.backtrace}"
+          puts "Sunspot Stats error: #{e.message} \n\n #{e.backtrace}"
           return []
         end
       end
