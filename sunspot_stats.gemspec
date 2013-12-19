@@ -6,8 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["giovannelli@extendi.it"]
   gem.description   = <<-TEXT
       Sunspot is a library providing a powerful, all-ruby API for the Solr search engine. This gem extend sunspot adding the 
-      statsComponent feature, which returns simple statistics for indexed numeric fields within the DocSet. Usually Suspot use the dismax
-      for searches, here we extend to edismax to manage also boolean logic searches.
+      statsComponent feature, which returns simple statistics for indexed numeric fields within the DocSet.
     TEXT
   gem.summary       = "Added the statsComponent to sunspot"
   gem.homepage      = "https://github.com/giovannelli/sunspot_stats"

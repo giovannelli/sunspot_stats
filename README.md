@@ -1,6 +1,6 @@
 # Sunspot Stats
 
-Sunspot is a Ruby library for expressive, powerful interaction with the Solr search engine. I use the latest version [2.0.0.pre.120417](https://rubygems.org/gems/sunspot/versions/2.0.0.pre.120417) but i need the statsComponent in order to get the sum on a given indexed field. 
+Sunspot is a Ruby library for expressive, powerful interaction with the Solr search engine. I use the latest version [2.1.0](http://rubygems.org/gems/sunspot/versions/2.1.0) but i need the statsComponent in order to get the sum (min, max, count, sumOfSquares, mean, stddev) on a given indexed field. 
 
 ## Installation
 
@@ -44,16 +44,16 @@ If you enable faceting on stats the stat_field is the facet and the value is the
 
 [Upgrade solr in sunspot](https://github.com/sunspot/sunspot/wiki/Upgrading-sunspot_solr-Solr-Instance) 
 
-### Boolean Searches
 
-Usually Suspot use the dismax for searches, here we extend to edismax to manage also boolean logic searches
+### StatsComponent Notes
 
-a OR (b AND c) works.
+The facet field can be selectively applied. That is if you want stats on field "A" and "B", you can facet a on "X" and B on "Y" using &stats.field=A&f.A.stats.facet=X&stats.field=B&f.B.stats.facet=Y
 
-## TODO
+*Warning*, as implemented, all facet results are returned, be careful what fields you ask for!
 
-Some more test!
+Multi-valued fields and facets may be slow.
 
+[StatsComponent](http://wiki.apache.org/solr/StatsComponent)
 
 ## Contributing
 

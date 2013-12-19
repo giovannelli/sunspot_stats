@@ -1,7 +1,9 @@
 require File.expand_path('spec_helper', File.dirname(__FILE__))
 
 describe "stats component" do
+  
   it "sends stats parameters to solr" do
+    
     session.search Content do
       stat :visibility, :facet => :published_at
     end
